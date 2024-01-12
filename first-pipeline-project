@@ -22,11 +22,11 @@ pipeline {
 
                     if(skip_test)
                     {
-                     echo " Bonjour $name vous avez chosis la branche $choice et vous avez choisis de skip les running tests" 
+                     echo " Bonjour $name vous avez chosis la branche $branch et vous avez choisis de skip les running tests" 
                     }
                     else
                     {
-                     echo " Bonjour $name vous avez chosis la branche $choice et vous avez choisis de ne pas skip les running tests" 
+                     echo " Bonjour $name vous avez chosis la branche $branch et vous avez choisis de ne pas skip les running tests" 
                     }
                 }
             }
