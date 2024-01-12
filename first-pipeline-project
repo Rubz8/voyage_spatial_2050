@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'NAME', description: 'Please tell me your name')
+        string(name: 'DESC', description: 'Describe about the job details')
+        booleanParam(name: 'SKIP_TEST', description: 'Want to skip running Test cases?')
+        choice(name: 'BRANCH', choices: ['Master', 'Dev'], description: 'Choose the branch')
+
+        password(name: 'SONAR_SERVER_PWD', description: 'Enter SONAR password')
+
+
+    }
+    stages {
+        stage('Printing name') {
+            steps {
+                script {
+                    def name = "${params.NAME}"
+                    def desc = "${params.DESC}"
+                    def branch = "$(params.BRANCH}"
+                    def skip_test = "$(params.SKIP_TEST}"
+                    def sonar_server_pwd = "$(params.SONAR_SERVER_PWD}"
+
+                    if($skip_test)
+                    echo = " Bonjour $name vous avez choisis la branche $choice et vous avez choisis de skip les tests"
+                    else{
+                    echo = " Bonjour $name vous avez choisis la branche $choice et vous avez choisis de ne pas passer skip les tests "
+                    }
+                }
+            }
+        }
+   }
+}
