@@ -17,8 +17,8 @@ pipeline {
                     def name = "${params.NAME}"
                     def desc = "${params.DESC}"
                     def branch = "${params.BRANCH}"
-                    def skip_test = "$(params.SKIP_TEST}"
-                    def sonar_server_pwd = "$(params.SONAR_SERVER_PWD}"
+                    def skip_test = "${params.SKIP_TEST}"
+                    def sonar_server_pwd = "${params.SONAR_SERVER_PWD}"
 
                     if($skip_test)
                     echo = " Bonjour $name vous avez choisis la branche $choice et vous avez choisis de skip les tests"
